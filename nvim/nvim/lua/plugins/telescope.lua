@@ -18,6 +18,9 @@ return {
         defaults = {
           -- show hidden files, ignore .git dir
           file_ignore_patterns = { "^.git/" },
+          preview = {
+            treesitter = false,
+          },
         },
         pickers = {
           find_files = {

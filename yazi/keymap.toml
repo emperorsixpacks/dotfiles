@@ -125,8 +125,9 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config/yazi",     desc = "Go ~/.config/yzai" },
-	{ on = [ "g", "d" ],       run = "cd ~/Documents/GitHub",   desc = "Go ~/Documents/GitHub" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config/yazi",     desc = "Go ~/.config/yazi" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go Downloads" },
+	{ on = [ "g", "w" ],       run = "cd ~/GitHub",           desc = "Go GitHub root" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 

@@ -39,32 +39,14 @@ return {
       handlers = {
         function(server_name)
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
-          local on_attach = function(client, bufnr)
-            -- Set keymaps for LSP functions
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
-            vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = bufnr })
-          end
           require('lspconfig')[server_name].setup({
             capabilities = capabilities,
-            on_attach = on_attach,
           })
         end,
         pyright = function()
           local capabilities = require('cmp_nvim_lsp').default_capabilities()
-          local on_attach = function(client, bufnr)
-            -- Set keymaps for LSP functions
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { buffer = bufnr })
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
-            vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = bufnr })
-          end
           require('lspconfig').pyright.setup({
             capabilities = capabilities,
-            on_attach = on_attach,
             settings = {
               pyright = {
                 disableOrganizeImports = true,
@@ -77,8 +59,22 @@ return {
             },
           })
         end,
-      }
+      },
     },
+    config = function(_, opts)
+      require('mason-lspconfig').setup(opts)
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local bufnr = args.buf
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
+          vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { buffer = bufnr })
+          vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { buffer = bufnr })
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = bufnr })
+          vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { buffer = bufnr })
+        end,
+      })
+    end,
   },
 
 }

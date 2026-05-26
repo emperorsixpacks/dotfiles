@@ -4,8 +4,8 @@ overall = { bg = "#0a0a0a" }
 [mgr]
 cwd = { fg = "#f9e2af" }
 
-find_keyword  = { fg = "#f9e2af", italic = true }
-find_position = { fg = "#f5c2e7", bg = "reset", italic = true }
+find_keyword  = { fg = "#0a0a0a", bg = "#f38ba8", bold = true }
+find_position = { fg = "#0a0a0a", bg = "#f5c2e7", bold = true }
 
 marker_copied   = { fg = "#a6e3a1", bg = "#a6e3a1" }
 marker_cut      = { fg = "#f38ba8", bg = "#f38ba8" }

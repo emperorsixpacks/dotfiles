@@ -1,0 +1,37 @@
+gui:
+  theme:
+    lightTheme: false
+    activeBorderColor:
+      - "#cba6f7"
+      - bold
+    inactiveBorderColor:
+      - "#6c7086"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#cba6f7"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+  authorColors:
+    "*": "#b4befe"
+  nerdFontsVersion: "3"
+  showFileTree: true
+  showBottomLine: true
+  showCommandLog: false
+git:
+  pagers:
+    - colorArg: always
+      pager: "delta --dark --paging=never"
+  branchLogCmd: "git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
+  allBranchesLogCmds:
+    - git log --graph --all --oneline --decorate
+os:
+  editPreset: "nvim"

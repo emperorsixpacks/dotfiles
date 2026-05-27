@@ -1,0 +1,12 @@
+filter_mode = "global"
+filter_mode_shell_up_key_binding = "global"
+search_mode = "fuzzy"
+secret_key = ""
+sync_address = "https://api.atuin.sh"
+sync_frequency = "0"
+sync_recursive = false
+workspaces = false
+show_preview = true
+auto_sync = false
+style = "auto"
+invert = false

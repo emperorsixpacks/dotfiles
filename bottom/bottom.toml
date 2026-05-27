@@ -1,0 +1,17 @@
+[colors]
+background_color = "#1e1e2e"
+text_color = "#cdd6f4"
+border_color = "#45475a"
+cpu_color = "#89b4fa"
+memory_color = "#a6e3a1"
+disk_color = "#f9e2af"
+network_rx_color = "#89b4fa"
+network_tx_color = "#f38ba8"
+widget_title_color = "#cba6f7"
+
+[flags]
+tree = false
+rate = 1000
+default_widget_count = 4
+default_widget_type = "cpu"
+group_proc_usage = true

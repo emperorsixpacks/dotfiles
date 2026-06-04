@@ -94,6 +94,10 @@ keymap = [
 	{ on = [ ",", "S" ], run = [ "sort size --reverse", "linemode size" ],      desc = "Sort by size (reverse)" },
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Sort randomly" },
 
+	# Selection / Visual mode
+	{ on = "v",       run = "visual_mode",             desc = "Enter visual mode (selection mode)" },
+	{ on = "<Space>", run = [ "toggle", "arrow 1" ],   desc = "Toggle selection and move down" },
+
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config/yazi",     desc = "Go ~/.config/yazi" },

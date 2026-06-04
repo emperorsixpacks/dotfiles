@@ -74,5 +74,4 @@ deleted = "D"
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vicmd_symbol = "[❯](purple)"
 format = "$symbol "

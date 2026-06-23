@@ -6,7 +6,7 @@ return {
     null_ls.setup({
       sources = {
         -- Python
-        null_ls.builtins.diagnostics.pylint,
+        null_ls.builtins.diagnostics.mypy,
 
         -- Go
         null_ls.builtins.diagnostics.golangci_lint,

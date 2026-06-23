@@ -88,3 +88,8 @@ function y() {
   fi
   rm -f -- "$tmp"
 }
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
+unsetopt CORRECT

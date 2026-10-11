@@ -8,6 +8,13 @@ vim.g.mapleader = ' '
 
 vim.opt.swapfile = false
 
+-- Neovim 0.12 detects .v as the V language; treat it as Verilog (HDL work)
+vim.filetype.add({
+  extension = {
+    v = 'verilog',
+  },
+})
+
 vim.wo.number = true
 
 require 'config.remaps'

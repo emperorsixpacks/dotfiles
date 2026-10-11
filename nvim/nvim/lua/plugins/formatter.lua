@@ -25,6 +25,9 @@ return {
         graphql      = { 'prettier' },
         solidity     = { 'prettier' },
         sh           = { 'shfmt' },
+        verilog      = { 'verible' },
+        systemverilog = { 'verible' },
+        vhdl         = { 'vsg' },
       },
       -- Format on save
       format_on_save = {

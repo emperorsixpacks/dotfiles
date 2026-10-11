@@ -4,6 +4,18 @@ return {
     lazy = false,
     config = function()
       require('mason').setup()
+
+      -- Formatters used by conform that mason-lspconfig does not install.
+      -- (verible comes with the verible LSP package, incl. verible-verilog-format)
+      local registry = require('mason-registry')
+      registry.refresh(function()
+        for _, name in ipairs({ 'prettier', 'vsg' }) do
+          local ok, pkg = pcall(registry.get_package, name)
+          if ok and not pkg:is_installed() then
+            pkg:install()
+          end
+        end
+      end)
     end,
   },
   {
@@ -19,7 +31,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     opts = {
-      auto_install = true,
+      -- mason-lspconfig v2: installs + auto-enables servers via vim.lsp.enable()
       ensure_installed = {
           'tailwindcss',
           'pyright',
@@ -35,33 +47,28 @@ return {
           'lua_ls',
           'ts_ls',
           'eslint',
-      },
-      handlers = {
-        function(server_name)
-          local capabilities = require('cmp_nvim_lsp').default_capabilities()
-          require('lspconfig')[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-        pyright = function()
-          local capabilities = require('cmp_nvim_lsp').default_capabilities()
-          require('lspconfig').pyright.setup({
-            capabilities = capabilities,
-            settings = {
-              pyright = {
-                disableOrganizeImports = true,
-              },
-              python = {
-                analysis = {
-                  ignore = { '*' },
-                },
-              },
-            },
-          })
-        end,
+          'vhdl_ls',
+          'verible',
       },
     },
     config = function(_, opts)
+      -- applied to every server (the old `handlers` option is gone in v2)
+      vim.lsp.config('*', {
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      })
+      vim.lsp.config('pyright', {
+        settings = {
+          pyright = {
+            disableOrganizeImports = true,
+          },
+          python = {
+            analysis = {
+              ignore = { '*' },
+            },
+          },
+        },
+      })
+
       require('mason-lspconfig').setup(opts)
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)

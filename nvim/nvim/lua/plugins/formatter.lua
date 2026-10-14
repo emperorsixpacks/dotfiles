@@ -10,6 +10,8 @@ return {
         lua          = { 'stylua' },
         python       = { 'isort', 'ruff_format' },
         rust         = { 'rustfmt' },
+        c            = { 'clang-format' },
+        cpp          = { 'clang-format' },
         go           = { 'goimports', 'gofmt' },
         javascript   = { 'prettier' },
         javascriptreact = { 'prettier' },

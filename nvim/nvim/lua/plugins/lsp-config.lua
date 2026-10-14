@@ -9,7 +9,7 @@ return {
       -- (verible comes with the verible LSP package, incl. verible-verilog-format)
       local registry = require('mason-registry')
       registry.refresh(function()
-        for _, name in ipairs({ 'prettier', 'vsg' }) do
+        for _, name in ipairs({ 'prettier', 'vsg', 'clang-format' }) do
           local ok, pkg = pcall(registry.get_package, name)
           if ok and not pkg:is_installed() then
             pkg:install()
@@ -39,6 +39,7 @@ return {
           'sqls',
           'gopls',
           'ast_grep',
+          'clangd',
           'rust_analyzer',
           'bashls',
           'yamlls',

@@ -8,6 +8,9 @@ return {
         -- Python
         null_ls.builtins.diagnostics.mypy,
 
+        -- C/C++
+        null_ls.builtins.diagnostics.cppcheck,
+
         -- Go
         null_ls.builtins.diagnostics.golangci_lint,
 

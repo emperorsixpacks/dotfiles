@@ -5,6 +5,7 @@ return {
 
     require('nvim-treesitter').install({
       'c',
+      'cpp',
       'lua',
       'markdown',
       'markdown_inline',

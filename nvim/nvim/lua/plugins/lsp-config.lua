@@ -56,6 +56,15 @@ return {
       vim.lsp.config('*', {
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
       })
+      vim.lsp.config('rust_analyzer', {
+        settings = {
+          ['rust-analyzer'] = {
+            check = {
+              command = 'clippy',
+            },
+          },
+        },
+      })
       vim.lsp.config('pyright', {
         settings = {
           pyright = {
